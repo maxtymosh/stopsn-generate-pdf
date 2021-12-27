@@ -13,12 +13,14 @@ app.set('view engine', 'ejs');
 //fetch data from the request
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', (req, res) => {
     res.render('home')
 });
 
 app.post('/', (req, res) => {
-    res.render('demopdf', { data: req.body.article }, function (err, html) {
+    res.render('demopdf', { article: req.body.article, firstname: req.body.firstname, lastname: req.body.lastname }, function (err, html) {
         pdf.create(html, options).toFile('./public/uploads/demopdf.pdf', function (err, result) {
             if (err) {
                 return console.log(err);
@@ -32,6 +34,34 @@ app.post('/', (req, res) => {
         });
     })
 })
+
+// app.post('/test', (req, res) => {
+//     res.render('demopdf', { data: req.body.article }, function (err, html) {
+//         // res.send(data)
+//     })
+// })
+
+app.post('/test', (req, res) => {
+    res.render('demopdf', { article: req.body.article, firstname: req.body.firstname, lastname: req.body.lastname  }, function (err, html) {
+        res.send(html)
+    })
+})
+
+app.get('/test', (req, res) => {
+    res.render('test')
+})
+
+// app.get('/test2', function (req, res) {
+//     res.render('demopdf', { data: req.body }, function (err, html) {
+        
+//     })
+//   });
+
+//   app.get('/test3', function(req, res, next) {
+//     res.render('demopdf', {title: 'POST test'});
+// });
+
+
 
 //assign port
 var port = process.env.PORT || 3000;
