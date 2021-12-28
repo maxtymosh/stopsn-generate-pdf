@@ -2,7 +2,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var pdf = require('html-pdf');
 var fs = require('fs');
-var options = { format: 'A4' };
+var _basePath = 'file:///' + __dirname + '/Media/';
+var options = {
+    format: 'A4', 
+    base: _basePath 
+};
 
 //init app
 var app = express();
@@ -26,7 +30,9 @@ app.post('/', (req, res) => {
                 return console.log(err);
             }
             else {
-                console.log(res);
+                // console.log(res);
+                console.log('_basePath:');
+                console.log(_basePath);
                 var datafile = fs.readFileSync('./public/uploads/demopdf.pdf');
                 res.header('content-type', 'application/pdf');
                 res.send(datafile);
@@ -35,6 +41,7 @@ app.post('/', (req, res) => {
     })
 })
 
+// var _basePath = 'file:///' + __dirname + '\\Media\\';
 // app.post('/test', (req, res) => {
 //     res.render('demopdf', { data: req.body.article }, function (err, html) {
 //         // res.send(data)
@@ -50,6 +57,13 @@ app.post('/test', (req, res) => {
 app.get('/test', (req, res) => {
     res.render('test')
 })
+
+// var options = { filename: './businesscard.pdf', format: 'Letter', width: '210mm', height: '297mm', border: '10mm', timeout: 120000 };
+
+// pdf.create(html, options, function(err, buffer) {
+//     if (err) return console.log(err);
+//     console.log("Converted successfully.");
+// });
 
 // app.get('/test2', function (req, res) {
 //     res.render('demopdf', { data: req.body }, function (err, html) {
