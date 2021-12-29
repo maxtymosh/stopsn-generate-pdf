@@ -4,120 +4,183 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Cuprum:regular&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:regular&display=swap" rel="stylesheet" />
     <title>DemoPdf</title>
 </head>
-
-<body class="pdf">
-    <header class="header">
-        <img class="logo-stopsn" src="https://stopsn.com.ua/wp-content/themes/spotlightonheartfailure/images/pdf/stopsn.svg" alt="Stopsn">
-        <img class="logo-astrazeneca" src="https://stopsn.com.ua/wp-content/themes/spotlightonheartfailure/images/pdf/astrazeneca.svg" alt="Astrazeneca">
-        <img class="logo-world" src="https://stopsn.com.ua/wp-content/themes/spotlightonheartfailure/images/pdf/world.svg" alt="World">
-    </header>
-    <hr class="hr">
-    <div class="factors_section">
-        <h3>Фактори ризику розвитку серцевої недостатності помічені вами:</h3>
-        <div class="factors">
-            <div class="factors__item">
-                <div class="circle"></div>
-                <div class="text">Підвищений артеріальний тиск</div>
-            </div>
-            <div class="factors__item">
-                <div class="circle"></div>
-                <div class="text">Хронічна хвороба нирок (ХХН)</div>
-            </div>
-            <div class="factors__item">
-                <div class="circle active"></div>
-                <div class="text">Порушення дихання під час сну</div>
-            </div>
-        </div>
-
-        <div class="factors">
-            <div class="factors__item">
-                <div class="circle"></div>
-                <div class="text">Інфаркт міокарда в анамнезі</div>
-            </div>
-            <div class="factors__item">
-                <div class="circle"></div>
-                <div class="text">Цукровий діабет</div>
-            </div>
-            <div class="factors__item">
-                <div class="circle"></div>
-                <div class="text">Куріння</div>
-            </div>
-        </div>
-
-        <div class="factors">
-            <div class="factors__item">
-                <div class="circle"></div>
-                <div class="text">Хронічне обструктивне захворювання легень (ХОЗЛ) / захворювання легень тяжкого ступеня</div>
-            </div>
-            <div class="factors__item">
-                <div class="circle"></div>
-                <div class="text">Фібриляція передсердь/нерегулярний серцевий ритм</div>
-            </div>
-            <div class="factors__item">
-                <div class="circle"></div>
-                <div class="text">Регулярне вживання алкоголю в надмірних кількостях</div>
-            </div>
-        </div>
-    </div>
-        <p style="margin:0px 15px 0px 15px;font-family:Times New Roman;font-weight:lighter;font-size:medium;">
-            <%= article%>
-            <br>
-            <%= firstname%>
-            <br>
-            <%= lastname%>
-
-            <h1>hello bro</h1>
-        </p>
-
-</body>
 <style>
-    .pdf {
-        border: 20px solid red;
-        padding: 0;
+    /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
         margin: 0;
-    }
-    .header {
-        
-    }
-
-    .logo-stopsn {
-
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
     }
 
-    .logo-world {
-        float: right;
-        margin-right: 0.5cm;
-    }
-
-    .logo-astrazeneca {
-        float: right;
-    }
-
-    .hr {
-        width: 100%;
-        height: 1px;
-        background-color: #F5F5F5;
-    }
-
-    .factors_section {
-        
-    }
-
-    .factors {
+    /* HTML5 display-role reset for older browsers */
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
         display: block;
-        margin-top: 10px;
     }
 
-    .factors__item {
-        display: inline-block;
-        width: 30%;
+    body {
+        line-height: 1;
     }
 
-    .factors__item .circle {
+    ol,
+    ul {
+        list-style: none;
+    }
+
+    blockquote,
+    q {
+        quotes: none;
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+        content: '';
+        content: none;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+</style>
+<style>
+    .factor {
+        display: block;
+        box-sizing: border-box;
+        margin: 0px -10px;
+    }
+
+    .factor::after {
+        clear: both;
+        content: '';
+        display: block;
+    }
+
+    .factor__item {
+        float: left;
+        box-sizing: border-box;
+        width: 33.33%;
+        padding: 0px 10px;
+        margin-bottom: 15px;
+    }
+
+    .factor__item:nth-child(3n + 1) {
+        clear: both;
+    }
+
+    .factor__content {
+        position: relative;
+        color: #242424;
+        box-sizing: border-box;
+        height: auto;
+        /* padding: 10px; */
+    }
+
+    .factor__content .circle {
+        position: absolute;
+        top: 0;
         display: inline-block;
-        /* float: left; */
         width: 16px;
         height: 16px;
         margin-right: 10px;
@@ -125,15 +188,179 @@
         border-radius: 50%;
     }
 
-    .factors__item .circle.active {
-        border: 3px solid red;
+    .factor__content .circle.active {
+        border: 1px solid grey;
+        background-color: red;
     }
 
-    .factors__item .text {
+    .factor__content .text {
+        margin-left: 25px;
         display: inline-block;
-        width: 78%;
+        /* width: 78%; */
+        font-weight: 400;
         font-size: 10px;
+        line-height: 12px;
+    }
+</style>
+<style>
+    html,
+    body {
+        font-family: Cuprum, "Open Sans";
+        font-weight: 400;
+        font-size: 14px;
     }
 
+    #pageHeader {
+        margin-top: 20px;
+    }
+
+
+    .footer-pdf {
+        padding: 10px 20px;
+        font-family: "Open Sans";
+        border-top: 1px solid #f5f5f5;
+        font-size: 6px;
+        line-height: 8px;
+        color: #3c3c3c;
+    }
+
+    .footer-pdf__text {
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .footer-pdf__link {
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        color: #e01f2d;
+    }
+
+    .footer-pdf__date {
+        text-align: right;
+    }
+
+    .pageContainer {
+        padding: 10px 20px;
+    }
+
+    .title {
+        margin-bottom: 10px;
+        letter-spacing: -1.25px;
+    }
 </style>
+
+<body class="pdf">
+    <div id="pageHeader">
+        <img src="http://protitov.ru/img/logo-big.svg" alt="logo">
+    </div>
+    <div class="pageContainer">
+        <h3 class="title">Фактори ризику розвитку серцевої недостатності помічені вами:</h3>
+        <ul class="factors__list factor">
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle active"></div>
+                    <div class="text">Підвищений артеріальний тиск</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle"></div>
+                    <div class="text">Хронічна хвороба нирок (ХХН)</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle"></div>
+                    <div class="text">Порушення дихання під час сну</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle"></div>
+                    <div class="text">Інфаркт міокарда в анамнез</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle "></div>
+                    <div class="text">Цукровий діабет</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle "></div>
+                    <div class="text">Куріння</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle "></div>
+                    <div class="text">Хронічне обструктивне захворювання легень (ХОЗЛ) / захворювання легень тяжког
+                        ступеня</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle"></div>
+                    <div class="text">Фібриляція передсердь/нерегулярний серцевий ритм</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle"></div>
+                    <div class="text">Регулярне вживання алкоголю в надмірних кількостях</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle"></div>
+                    <div class="text">Вроджені вади серця</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle"></div>
+                    <div class="text">Ішемічна хвороба серця</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle"></div>
+                    <div class="text">Ожиріння</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle"></div>
+                    <div class="text">Вади клапанів серця</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle"></div>
+                    <div class="text">Вік від 60 років і старше</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle"></div>
+                    <div class="text">Малорухливий спосіб життя</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <div class="circle"></div>
+                    <div class="text">Високий рівень холестерину</div>
+                </div>
+            </li>
+        </ul>
+        <p style="margin:0px 15px 0px 15px;font-family:Times New Roman;font-weight:lighter;font-size:medium;">
+            <%= article%>
+                <br>
+                <%= firstname%>
+                    <br>
+                    <%= lastname%>
+        </p>
+    </div>
+    <div id="pageFooter"></div>
+</body>
+
 </html>

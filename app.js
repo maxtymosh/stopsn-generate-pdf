@@ -4,8 +4,18 @@ var pdf = require('html-pdf');
 var fs = require('fs');
 var _basePath = 'file:///' + __dirname + '/Media/';
 var options = {
-    format: 'A4', 
-    base: _basePath 
+    format: 'A4',
+    base: _basePath,
+    "header": {
+        "height": "65px",
+    },
+    "footer": {
+        "height": "50px",
+        "margin": "1cm",
+        "contents": {
+            default: '<div class="footer-pdf"><div class="footer-pdf__text">Цей документ призначений для широкого загалу та людей, які живуть із серцевою недостатністю. Для отримання більш докладної інформації перейдіть за посиланням</div><a class="footer-pdf__link" href="https://stopsn.com.ua/" style="">https://stopsn.com.ua/</a><div class="footer-pdf__date">UA-3050 Approved November 2021</div><div>'
+        }
+    },
 };
 
 //init app
@@ -20,26 +30,32 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('home');
 });
 
 app.post('/', (req, res) => {
-    res.render('demopdf', { article: req.body.article, firstname: req.body.firstname, lastname: req.body.lastname }, function (err, html) {
-        pdf.create(html, options).toFile('./public/uploads/demopdf.pdf', function (err, result) {
-            if (err) {
-                return console.log(err);
-            }
-            else {
-                // console.log(res);
-                console.log('_basePath:');
-                console.log(_basePath);
-                var datafile = fs.readFileSync('./public/uploads/demopdf.pdf');
-                res.header('content-type', 'application/pdf');
-                res.send(datafile);
-            }
+    res.render('demopdf',
+        {
+            article: req.body.article,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname
+        },
+        function (err, html) {
+            pdf.create(html, options).toFile('./public/uploads/demopdf.pdf', function (err, result) {
+                if (err) {
+                    return console.log(err);
+                }
+                else {
+                    // console.log(res);
+                    console.log('_basePath:');
+                    console.log(_basePath);
+                    var datafile = fs.readFileSync('./public/uploads/demopdf.pdf');
+                    res.header('content-type', 'application/pdf');
+                    res.send(datafile);
+                }
+            });
         });
-    })
-})
+});
 
 // var _basePath = 'file:///' + __dirname + '\\Media\\';
 // app.post('/test', (req, res) => {
@@ -49,14 +65,20 @@ app.post('/', (req, res) => {
 // })
 
 app.post('/test', (req, res) => {
-    res.render('demopdf', { article: req.body.article, firstname: req.body.firstname, lastname: req.body.lastname  }, function (err, html) {
-        res.send(html)
-    })
-})
+    res.render('demopdf',
+        {
+            article: req.body.article,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname
+        },
+        function (err, html) {
+            res.send(html);
+        });
+});
 
 app.get('/test', (req, res) => {
-    res.render('test')
-})
+    res.render('test');
+});
 
 // var options = { filename: './businesscard.pdf', format: 'Letter', width: '210mm', height: '297mm', border: '10mm', timeout: 120000 };
 
@@ -67,7 +89,7 @@ app.get('/test', (req, res) => {
 
 // app.get('/test2', function (req, res) {
 //     res.render('demopdf', { data: req.body }, function (err, html) {
-        
+
 //     })
 //   });
 
