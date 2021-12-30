@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var pdf = require('html-pdf');
 var fs = require('fs');
-var _basePath = 'file:///' + __dirname + '/Media/';
+var _basePath = 'file:///' + __dirname + '/public/';
 var options = {
     format: 'A4',
     base: _basePath,
@@ -33,23 +33,39 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-app.post('/', (req, res) => {
-    res.render('demopdf',
+app.post('/risk', (req, res) => {
+    res.render('risk',
         {
-            article: req.body.article,
-            firstname: req.body.firstname,
-            lastname: req.body.lastname
+            more_60: req.body.more_60,
+            infarct: req.body.infarct,
+            coronary_heart: req.body.coronary_heart,
+            congenital_heart: req.body.congenital_heart,
+
+            heart_valves: req.body.heart_valves,
+            high_cholesterol: req.body.high_cholesterol,
+            high_blood_pressure: req.body.high_blood_pressure,
+            other_heart_rhythm_disorders: req.body.other_heart_rhythm_disorders,
+
+            diabetes: req.body.diabetes,
+            copd: req.body.copd,
+            chronic_kidney: req.body.chronic_kidney,
+            respiratory_disorders: req.body.respiratory_disorders,
+
+            smoking: req.body.smoking,
+            alcohol: req.body.alcohol,
+            weight: req.body.weight,
+            low_phisical_activity: req.body.low_phisical_activity,
         },
         function (err, html) {
-            pdf.create(html, options).toFile('./public/uploads/demopdf.pdf', function (err, result) {
+            pdf.create(html, options).toFile('./public/uploads/risk.pdf', function (err, result) {
                 if (err) {
                     return console.log(err);
                 }
                 else {
                     // console.log(res);
-                    console.log('_basePath:');
-                    console.log(_basePath);
-                    var datafile = fs.readFileSync('./public/uploads/demopdf.pdf');
+                    // console.log('_basePath:');
+                    // console.log(_basePath);
+                    var datafile = fs.readFileSync('./public/uploads/risk.pdf');
                     res.header('content-type', 'application/pdf');
                     res.send(datafile);
                 }
@@ -65,7 +81,7 @@ app.post('/', (req, res) => {
 // })
 
 app.post('/test', (req, res) => {
-    res.render('demopdf',
+    res.render('risk',
         {
             article: req.body.article,
             firstname: req.body.firstname,
