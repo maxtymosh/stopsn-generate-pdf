@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Cuprum:regular&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:regular&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Licorice:regular&display=swap" rel="stylesheet" />
     <title>DemoPdf</title>
 </head>
 <style>
@@ -145,67 +146,9 @@
     }
 </style>
 <style>
-    .factor {
-        display: block;
-        box-sizing: border-box;
-        margin: 0px -10px;
-    }
-
-    .factor::after {
-        clear: both;
-        content: '';
-        display: block;
-    }
-
-    .factor__item {
-        float: left;
-        box-sizing: border-box;
-        width: 33.33%;
-        padding: 0px 10px;
-        margin-bottom: 15px;
-    }
-
-    .factor__item:nth-child(3n + 1) {
-        clear: both;
-    }
-
-    .factor__content {
-        position: relative;
-        color: #242424;
-        box-sizing: border-box;
-        height: auto;
-        /* padding: 10px; */
-    }
-
-    .factor__content .circle {
-        position: absolute;
-        top: 0;
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        margin-right: 10px;
-        border: 1px solid grey;
-        border-radius: 50%;
-    }
-
-    .factor__content .circle.active {
-        border: 1px solid grey;
-        background-color: red;
-    }
-
-    .factor__content .text {
-        margin-left: 25px;
-        display: inline-block;
-        /* width: 78%; */
-        font-weight: 400;
-        font-size: 10px;
-        line-height: 12px;
-    }
-</style>
-<style>
     html,
     body {
-        font-family: Cuprum, "Open Sans";
+        font-family: Cuprum, "Open Sans", Licorice;
         font-weight: 400;
         font-size: 14px;
     }
@@ -246,6 +189,141 @@
         letter-spacing: -1.25px;
     }
 </style>
+<style>
+    .factor {
+        display: block;
+        box-sizing: border-box;
+        margin: 0px -8px;
+    }
+
+    .factor::after {
+        clear: both;
+        content: '';
+        display: block;
+    }
+
+    .factor__item {
+        float: left;
+        box-sizing: border-box;
+        width: 33.33%;
+        padding: 0px 8px;
+        margin-bottom: 20px;
+    }
+
+    .factor__item:nth-child(3n + 1) {
+        clear: both;
+    }
+
+    .factor__content {
+        position: relative;
+        color: #242424;
+        box-sizing: border-box;
+        height: auto;
+        /* padding: 10px; */
+    }
+
+    .factor__content img {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .factor__content .circle {
+        position: absolute;
+        top: 0;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+        border: 1px solid grey;
+        border-radius: 50%;
+    }
+
+    .factor__content .circle.active {
+        border: 1px solid grey;
+        background-color: red;
+    }
+
+    .factor__content .text {
+        font-family: 'Open Sans';
+        margin-left: 25px;
+        display: inline-block;
+        /* width: 78%; */
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
+        color: #000;
+    }
+
+    .factor__content .text--margin {
+        /* padding-top: 20px; */
+        padding-left: 30px;
+    }
+
+    .factors__text {
+        margin-bottom: 10px;
+        padding: 5px 15px;
+        background-color: #f9f9f9;
+        border-left: 2px solid #e01f2d;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: -1px;
+    }
+
+    .hr {
+        border: 1px solid #eee;
+        margin: 0 0 20px 0;
+    }
+
+    .hr--wide {
+        margin: 0 -20px 10px -20px;
+        border: 1px solid #f5f5f5;
+    }
+
+    .ask {
+        margin-bottom: 10px;
+        counter-reset: section;
+        list-style-type: none;
+    }
+
+    .ask__item {
+        position: relative;
+
+        font-size: 10px;
+        line-height: 25px;
+        padding: 0 10px 0 30px;
+        margin-bottom: 2px;
+        background-color: #F9F9F9;
+        letter-spacing: -0.5px;
+    }
+
+    .ask__item::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 5px 0;
+        counter-increment: section;
+        content: counters(section, ".") " ";
+        background-color: #e6e6e6;
+        max-width: 25px;
+        width: 100%;
+        max-height: 25px;
+        font-size: 16px;
+        line-height: 1;
+        text-align: center;
+    }
+
+    .association {
+        font-family: "Open Sans";
+        font-size: 6px;
+        line-height: 8px;
+    }
+
+    .association__link {
+        color: #e01f2d;
+    }
+</style>
+
 
 <body class="pdf">
     <div id="pageHeader">
@@ -352,6 +430,39 @@
                 </div>
             </li>
         </ul>
+        <p class="factors__text">Якщо Ви принесете ці результати на прийом до лікаря, це допоможе конструктивно
+            обговорити ризик розвитку у Вас серцевої недостатності.</p>
+        <hr class="hr hr--wide">
+        <h3 class="title">Крім того, нижче наводимо кілька корисних запитань, які Ви можете, за бажанням, поставити
+            лікарю.</h3>
+        <ol class="ask">
+            <li class="ask__item">Які основні фактори ризику можуть призвести до розвитку серцевої недостатності?</li>
+            <li class="ask__item">На які симптоми мені слід звертати увагу?</li>
+            <li class="ask__item">Що я можу зробити, щоб знизити ризик розвитку серцевої недостатності?</li>
+            <li class="ask__item">Чи потрібно мені щось змінити у своєму способі життя?</li>
+            <li class="ask__item">Які дослідження мені буде потрібно пройти та що вони покажуть?</li>
+            <li class="ask__item">Чи можу я отримати копію результатів своїх досліджень?</li>
+            <li class="ask__item">Де я можу отримати додаткову інформацію про зниження ризику розвитку серцевої
+                недостатності?</li>
+            <li class="ask__item">Чи потрібно мені записуватися на наступний прийом перед виходом із кабінету лікаря?
+            </li>
+        </ol>
+        <p class="factors__text">Цей інструмент не може та не повинен використовуватися для діагностики серцевої
+            недостатності та не замінює рекомендацій Вашого лікаря.</p>
+        <p class="association">
+            1. American Heart Association. Causes of heart failure. Доступно на вебсайті:
+            <a class="association__link"
+                href="https://www.heart.org/en/health-topics/heart-failure/causes-and-risks-for-heart-failure/causes-of-heart-failure.">
+                https://www.heart.org/en/health-topics/heart-failure/causes-and-risks-for-heart-failure/causes-of-heart-failure.
+            </a>
+        </p>
+        <p class="association">
+            2. Savarese G, Lund LH . Global Public Health Burden of Heart Failure. Card Fail Rev. 2017 Apr;3 (1):7-11.
+        </p>
+        <p class="association">
+            3. He J, Shlipak M, Anderson A, et al. Risk Factors for Heart Failure in Patients With Chronic Kidney
+            Disease: The CRIC (Chronic Renal Insuciency Cohort) Study. J Am Heart Assoc. 2017;17;6(5):e005336
+        </p>
         <p style="margin:0px 15px 0px 15px;font-family:Times New Roman;font-weight:lighter;font-size:medium;">
             <%= article%>
                 <br>
@@ -360,6 +471,112 @@
                     <%= lastname%>
         </p>
     </div>
+    <div class="pageContainer">
+        <h3 class="title">Симптоми серцевої недостатності</h3>
+        <ul class="factors__list factor">
+            <li class="factor__item">
+                <div class="factor__content">
+                    <img src="http://protitov.ru/img/cough.svg" alt="cough">
+                    <div class="text text--margin">Задишка</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <img src="http://protitov.ru/img/leg.svg" alt="leg">
+                    <div class="text text--margin">Набряк стоп, гомілок, стегон, живота</div>
+                </div>
+            </li>
+
+            <li class="factor__item">
+                <div class="factor__content">
+                    <img src="http://protitov.ru/img/person.svg" alt="person">
+                    <div class="text text--margin">Слабкість або втома</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <img src="http://protitov.ru/img/hearth.svg" alt="hearth">
+                    <div class="text text--margin">Швидке або нерегулярне серцебиття </div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <img src="http://protitov.ru/img/wrp.svg" alt="wrp">
+                    <div class="text text--margin">Відсутність апетиту та нудота</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <img src="http://protitov.ru/img/cough2.svg" alt="cough">
+                    <div class="text text--margin">Стійкий кашель або хрипи</div>
+                </div>
+            </li>
+            <li class="factor__item">
+                <div class="factor__content">
+                    <img src="http://protitov.ru/img/medit.svg" alt="medit">
+                    <div class="text text--margin">Утруднена концентрація уваги або сплутаність свідомості</div>
+                </div>
+            </li>
+        </ul>
+        <hr class="hr hr--wide">
+        <h3 class="title">Нотатки</h3>
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+    </div>
+    <div class="pageContainer">
+        <h3 class="title">Нотатки</h3>
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+        <hr class="hr">
+    </div>
+
     <div id="pageFooter"></div>
 </body>
 
