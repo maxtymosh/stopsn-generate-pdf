@@ -54,7 +54,7 @@ app.post('/risk', (req, res) => {
             smoking: req.body.smoking,
             alcohol: req.body.alcohol,
             weight: req.body.weight,
-            low_phisical_activity: req.body.low_phisical_activity,
+            low_phisical_activity: req.body.low_phisical_activity
         },
         function (err, html) {
             pdf.create(html, options).toFile('./public/uploads/risk.pdf', function (err, result) {

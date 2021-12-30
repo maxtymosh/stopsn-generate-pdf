@@ -335,98 +335,98 @@
         <ul class="factors__list factor">
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle active"></div>
-                    <div class="text">Підвищений артеріальний тиск</div>
+                    <div class="circle <%= high_blood_pressure === '1' ? 'active' : ''; %>"></div>
+                    <div class="text">Підвищений артеріальний тиск </div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle"></div>
+                    <div class="circle <%= chronic_kidney === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Хронічна хвороба нирок (ХХН)</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle"></div>
+                    <div class="circle <%= respiratory_disorders === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Порушення дихання під час сну</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle"></div>
+                    <div class="circle <%= infarct === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Інфаркт міокарда в анамнез</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle "></div>
+                    <div class="circle <%= diabetes === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Цукровий діабет</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle "></div>
+                    <div class="circle <%= smoking === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Куріння</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle "></div>
+                    <div class="circle <%= copd === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Хронічне обструктивне захворювання легень (ХОЗЛ) / захворювання легень тяжког
                         ступеня</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle"></div>
+                    <div class="circle <%= other_heart_rhythm_disorders === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Фібриляція передсердь/нерегулярний серцевий ритм</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle"></div>
+                    <div class="circle <%= alcohol === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Регулярне вживання алкоголю в надмірних кількостях</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle"></div>
+                    <div class="circle <%= congenital_heart === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Вроджені вади серця</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle"></div>
+                    <div class="circle <%= coronary_heart === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Ішемічна хвороба серця</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle"></div>
+                    <div class="circle <%= weight === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Ожиріння</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle"></div>
+                    <div class="circle <%= heart_valves === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Вади клапанів серця</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle"></div>
+                    <div class="circle <%= more_60 === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Вік від 60 років і старше</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle"></div>
+                    <div class="circle <%= low_phisical_activity === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Малорухливий спосіб життя</div>
                 </div>
             </li>
             <li class="factor__item">
                 <div class="factor__content">
-                    <div class="circle"></div>
+                    <div class="circle <%= high_cholesterol === '1' ? 'active' : ''; %>"></div>
                     <div class="text">Високий рівень холестерину</div>
                 </div>
             </li>
@@ -464,13 +464,7 @@
             3. He J, Shlipak M, Anderson A, et al. Risk Factors for Heart Failure in Patients With Chronic Kidney
             Disease: The CRIC (Chronic Renal Insuciency Cohort) Study. J Am Heart Assoc. 2017;17;6(5):e005336
         </p>
-        <p style="margin:0px 15px 0px 15px;font-family:Times New Roman;font-weight:lighter;font-size:medium;">
-            <%= article%>
-                <br>
-                <%= firstname%>
-                    <br>
-                    <%= lastname%>
-        </p>
+       
     </div>
     <div class="pageContainer">
         <h3 class="title">Симптоми серцевої недостатності</h3>
@@ -521,6 +515,7 @@
         </ul>
         <hr class="hr hr--wide">
         <h3 class="title">Нотатки</h3>
+        <hr class="hr">
         <hr class="hr">
         <hr class="hr">
         <hr class="hr">
