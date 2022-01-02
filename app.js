@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('empty');
 });
 
 app.post('/risk', (req, res) => {
