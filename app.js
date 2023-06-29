@@ -13,7 +13,7 @@ var options = {
         "height": "50px",
         "margin": "1cm",
         "contents": {
-            default: '<div class="footer-pdf"><div class="footer-pdf__text">Цей документ призначений для широкого загалу та людей, які живуть із серцевою недостатністю. Для отримання більш докладної інформації перейдіть за посиланням</div><a class="footer-pdf__link" href="https://stopsn.com.ua/" style="">https://stopsn.com.ua/</a><div class="footer-pdf__date">UA-3050 Approved November 2021</div><div>'
+            default: '<div class="footer-pdf"><div class="footer-pdf__text">Цей документ призначений для широкого загалу та людей, які живуть із серцевою недостатністю. Для отримання більш докладної інформації перейдіть за посиланням</div><a class="footer-pdf__link" href="https://stopsn.com.ua/" style="">https://stopsn.com.ua/</a><div class="footer-pdf__date">UA-4428 Approved June 2023</div><div>'
         }
     },
 };
